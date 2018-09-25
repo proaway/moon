@@ -1,0 +1,21 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.moon</groupId>
+		<artifactId>moon</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<artifactId>moon-middle</artifactId>
+	<packaging>pom</packaging>
+
+	<name>${project.artifactId}</name>
+	<description>进阶：The parent project of ${project.artifactId}, module of ${project.parent.artifactId} project.</description>
+	<build />
+	<modules>
+		<module>moon-middle-underlying</module>
+		<module>moon-middle-designpattern</module>
+		<module>moon-middle-network</module>
+		<module>moon-middle-framework</module>
+		<module>moon-middle-appserver</module>
+	</modules>
+</project>
