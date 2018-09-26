@@ -10,6 +10,7 @@ public class CGlibInterceptor implements MethodInterceptor {
 
 	@Override
 	public Object intercept(Object obj, Method method, Object[] args, MethodProxy proxy) throws Throwable {
+		// 代理类调用父类的方法
 		proxy.invokeSuper(obj, args);
 		return null;
 	}

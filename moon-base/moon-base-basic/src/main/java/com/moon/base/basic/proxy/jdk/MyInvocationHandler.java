@@ -29,8 +29,15 @@ public class MyInvocationHandler implements InvocationHandler {
 		this.target = target;
 	}
 
+	/*
+	 * 执行目标对象的方法
+	 * 
+	 * @see java.lang.reflect.InvocationHandler#invoke(java.lang.Object,
+	 * java.lang.reflect.Method, java.lang.Object[])
+	 */
 	@Override
 	public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+		// 执行目标对象的方法
 		Object result = method.invoke(target, args);
 		return result;
 	}
