@@ -15,7 +15,7 @@ package moon.middle.designpattern.template;
 public abstract class CookTemplate {
 
 	/**
-	 * 具体的步骤
+	 * 具体的步骤：只能被自己和自己的子类调用
 	 * 
 	 * @author TobiasCui
 	 * @date 2018年9月27日 下午6:10:58
