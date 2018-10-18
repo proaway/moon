@@ -1,4 +1,4 @@
-package com.moon.base.concurrency.thread;
+package com.moon.base.concurrency.thread.interrupt;
 
 import java.util.concurrent.TimeUnit;
 
