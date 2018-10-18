@@ -42,7 +42,7 @@ public class ThreadJoin {
 
 	private static void shortSleep() {
 		try {
-			TimeUnit.SECONDS.sleep(4);
+			TimeUnit.SECONDS.sleep(3);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
