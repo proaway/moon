@@ -3,24 +3,21 @@ package com.moon.middle.underling.bytecode;
 /**
  * 位运算，实现加减乘除取模(+、-、*、/、%)
  * <p>
- * 递归方式实现
+ * while方式实现
  * 
  * @author TobiasCui
- * @date 2018年11月5日 下午4:23:33
+ * @date 2018年11月5日 下午4:25:38
  * 
  */
-public class BitOperation {
+public class BitOperation2 {
 	/**
-	 * 加法：a+b
 	 * 
-	 * 由a^b可得按位相加后没有进位的和；
 	 * 
-	 * 由a&b可得可以产生进位的地方；
-	 * 
-	 * 由(a&b)<<1得到进位后的值。
-	 * 
-	 * 那么 按位相加后原位和+进位和 就是加法的和了，而 a^b + (a&b)<<1 相当于把 +
-	 * 两边再代入上述三步进行加法计算。直到进位和为0说明没有进位了则此时原位和即所求和。
+	 * 加法：将两个数看作是二进制数，利用:<br/>
+	 * 1.相异（^）时，本位为1，进位为0； <br/>
+	 * 2.同为1时本位为0，进位为1；同为0时，本位进位均为0;<br/>
+	 * <p>
+	 * 所以，不计进位的和为a^b，进位就是a&b,(与sum相加时先左移一位，因为这是进位）；完成加法直到进位为0。
 	 * 
 	 * @author TobiasCui
 	 * @date 2018年11月5日 下午1:49:02
@@ -30,16 +27,16 @@ public class BitOperation {
 	 * @return
 	 */
 	public static int add(int a, int b) {
-		int result;
-		int xor = a ^ b;// 得到原位和
-		int forward = (a & b) << 1;// 得到进位和
-		if (forward != 0) {
-			// 若进位和不为0，则递归求原位和+进位和
-			result = add(xor, forward);
-		} else {
-			// 若进位和为0，则此时原位和为所求和
-			result = xor;
+		if (b == 0) {
+			return a;
 		}
+		int result = 0;
+		while (b != 0) {
+			result = a ^ b;
+			b = (a & b) << 1;
+			a = result;
+		}
+
 		return result;
 	}
 
@@ -48,7 +45,7 @@ public class BitOperation {
 	 * 
 	 * 由-b=+(-b)，~（b-1）=-b
 	 * 
-	 * 可得a-b=a+（-b）=a+(~(b-1))。把减法转化为加法即可。
+	 * 可得a-b=a+（-b）=a+(~(b-1))。把减法转化为加法即可。 减法：利用a+(-b)来实现，其中-b为补码，及取反再加一
 	 * 
 	 * @author TobiasCui
 	 * @date 2018年11月5日 下午1:55:13
@@ -148,10 +145,6 @@ public class BitOperation {
 
 	public static void main(String[] args) {
 		int a = -100, b = 10;
-		// System.out.println(add(a, b));
-		// System.out.println(minus(a, b));
-		// System.out.println(multi(a, b));
-		// System.out.println(sub(a, b));
-		System.out.println(mod(a, b));
+		System.out.println(add(a, b));
 	}
 }
