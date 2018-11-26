@@ -1,0 +1,13 @@
+<xsd:complexType name='Address'>
+	<xsd:attribute name='city' type='xsd:string' />
+	<xsd:attribute name='postcode' type='xsd:string' />
+	<xsd:attribute name='street' type='xsd:string' />
+</xsd:complexType>
+<xsd:complexType name='UserInfo'>
+	<xsd:sequence>
+		<xsd:element name='address' type='tns:Address' />
+		<xsd:element name='address1' type='tns:Address' />
+	</xsd:sequence>
+	<xsd:attribute name='userid' type='xsd:int' />
+	<xsd:attribute name='name' type='xsd:string' />
+</xsd:complexType>
