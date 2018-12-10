@@ -1,4 +1,4 @@
-package com.moon.base.concurrency.atomic;
+package com.moon.base.concurrency.juc.atomic;
 
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
