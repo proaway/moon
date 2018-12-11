@@ -22,6 +22,7 @@
 		<module>moon-base</module>
 		<module>moon-middle</module>
 		<module>moon-senior</module>
+		<module>moon-architecture</module>
 		<module>moon-extension</module>
 	</modules>
 </project>
